@@ -275,15 +275,9 @@ WRT
 
 #### 虚拟机工具链
 
-方便起见，把工具链放在一起说明。
+方便起见，把工具链放在一起说明，源代码在[这里](https://github.com/BUAA-SE-Compiling/miniplc0-toolchain)。
 
-注意不同的系统下请使用对应的工具链，都可以在 tools/ 目录下找到。
-
-|OS|ARCH|Tool Chain|
-|-|-|-|
-|Windows|AMD64|miniplc0-windows-amd64.exe|
-|Linux|AMD64|miniplc0-linux-amd64|
-|MacOS|AMD64|miniplc0-darwin-amd64|
+注意不同的系统下请使用对应的工具链，都可以在[这里](https://github.com/BUAA-SE-Compiling/miniplc0-toolchain/releases)找到，如果有新版本请及时更新。
 
 然后首先看程序的 Usage：
 
