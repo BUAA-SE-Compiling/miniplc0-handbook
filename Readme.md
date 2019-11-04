@@ -954,93 +954,29 @@ void add(int a, int b, exception_context& ctx);
 
 其实也就三个可选，C 虽然语法简单，但是很容易浪费精力在造轮子上，Java 似乎是一个很好的选择但是我们都不太想写（溜），所以最后就是 C\+\+ 了。
 
-C++提供了多样并强大的标准类库，能避免很多需要造轮子的场景，让精力更多的放在编译器的逻辑上。
+C++提供了功能多样且强大的[标准库]( https://en.cppreference.com/w/cpp/header )，能避免很多需要造轮子的场景，让精力更多放在实现编译器的逻辑上。
 
-如果有不会的地方首先可以考虑询问助教，所有语言相关的问题我们都会尽力解答。如果学习能力强，建议参考 [https://en.cppreference.com](https://en.cppreference.com)，也有[中文版](https://zh.cppreference.com)。
+### 知识清单
 
-由于预见到可能的各种问题，我们接下来会简单介绍一些概念。以下内容假设同学们的Java都还记得基础语法。
+由于预见到可能的各种问题，下面列出一些你可能需要了解的知识。
 
-### 作用域
+如果有不会的地方首先可以考虑询问助教，所有语言相关的问题我们都会尽力解答。从自学的角度，建议先参考 [cppreference](https://en.cppreference.com)（[中文版](https://zh.cppreference.com)）。
 
-由于规则过于复杂（[ref](https://en.cppreference.com/w/cpp/language/scope)），这里只针对变量进行介绍。
-
-C++中，以一对大括号`{}`代表一个作用域，在作用域中声明的所有局部变量/函数，只在该作用域内有效。如果内层作用域声明了外层已经使用过的标识符，那么内层标识符会覆盖外层标识符^[link](https://en.cppreference.com/w/cpp/language/declarations#Notes)^，在内层作用域对该标识符进行的一切操作，都不会影响外层作用域的同名标识符：
-```clike=
-int a = 0; // global_a
-
-void fun() {
-    int a = -1; // fun_local_a
-}
-
-int main () {
-    // int fun = -1; // ok, main_local_fun
-    // fun(); // error: "fun" is not a function 
-    int a = 1; // main_local_a_1
-    std::cout << a; // 2
-    if (true) {
-        int a = 2; // main_local_a_2
-        std::cout << a; // 2
-        {
-            int a = 3; // main_local_a_3
-            std::cout << a; // 3
-            int b = 4;
-            std::cout << b; // 4
-        }
-        // std::cout << b; // error: undefined identifier
-        std::cout << a; // 2
-    }
-    std::cout << a; // 1
-    return 0;
-}
-```
-
-大量使用同名标识符会对代码的可读性带来灾难性打击，调试时也很容易感到困惑，因此请尽量不要这么做。
-
-### Standard Template Library
-
-#### std::string
-
-#### std::vector
-
-#### std::map 与 std::unordered_map
-
-### C++11
-
-#### auto与decltype
-
-https://en.cppreference.com/w/cpp/keyword/auto
-https://en.cppreference.com/w/cpp/language/auto
-
-https://en.cppreference.com/w/cpp/language/decltype
-
-#### lambda
-
-[lambda](https://en.cppreference.com/w/cpp/language/lambda)
-
-#### std::initializer_list
-
-[std::initializer_list](https://en.cppreference.com/w/cpp/utility/initializer_list)
-
-#### scoped enumerations
-
-[scoped enumerations](https://en.cppreference.com/w/cpp/language/enum#Scoped_enumerations)
-
-### C++17
-
-#### std::optional
-
-https://en.cppreference.com/w/cpp/utility/optional
-C++17引入的可选类，提供了 NULL 的语义。
-
-#### std::any
-
-https://en.cppreference.com/w/cpp/utility/any
-C++17引入的类，提供类型安全的类似动态类型的功能。
-
-#### std::variant
-
-https://en.cppreference.com/w/cpp/utility/variant
-C++17引入的模板类，提供类型安全的类似union的功能。
+- 语法
+  - [作用域](https://en.cppreference.com/w/cpp/language/scope)
+  - [`auto`]( https://en.cppreference.com/w/cpp/language/auto )与[`decltype`](https://en.cppreference.com/w/cpp/language/decltype) (C++11)： 将类型推导交给编译器
+  - [lambda](https://en.cppreference.com/w/cpp/language/lambda) (C++11)： 匿名函数
+  - [scoped enumerations](https://en.cppreference.com/w/cpp/language/enum#Scoped_enumerations) (C++11)：不污染符号表的枚举类
+- 工具
+  - [std::optional](https://en.cppreference.com/w/cpp/utility/optional) (C++17)： 提供 NULL 的语义。
+  - [std::any](https://en.cppreference.com/w/cpp/utility/any) (C++17)： 提供类型安全的类似动态类型的功能。
+  - [std::variant](https://en.cppreference.com/w/cpp/utility/variant) (C++17)： 提供类型安全的类似union的功能。
+- [容器]( https://en.cppreference.com/w/cpp/container )
+  - [std::string]( https://en.cppreference.com/w/cpp/string/basic_string )： 可修改的变长的字符串
+  - [std::vector]( https://en.cppreference.com/w/cpp/container/vector )： 变长的容器
+  - [std::pair](https://en.cppreference.com/w/cpp/utility/pair)： 存储一对值的容器
+  - [std::map]( https://en.cppreference.com/w/cpp/container/map )： 以键排序的键值对容器
+  - [std::unordered_map]( https://en.cppreference.com/w/cpp/container/unordered_map ) (C++11)： 基于hash的无序键值对容器
 
 ### CMake/Catch2
 
