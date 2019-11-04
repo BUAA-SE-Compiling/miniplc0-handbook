@@ -271,7 +271,7 @@ WRT
 
 假设这个输出是 hello.plc0，我们马上还会见到这个文件。
 
-具体的指令集建议先行阅读[miniplc0虚拟机标准](https://vm.lab.lazymio.cn)。
+具体的指令集建议先行阅读[miniplc0虚拟机标准](https://vm.buaasecompiling.cn)。
 
 #### 虚拟机工具链
 
@@ -542,7 +542,7 @@ miniplc0 在编译后会运行在一个我们特制的虚拟机上，这个虚�
 
 由于课程本身不包含虚拟机设计，因此虚拟机实现不作要求，但是我们非常推荐能自己亲自实现一个简单的虚拟机用于测试，这也是我们给出具体标准的原因。
 
-虚拟机的实现标准在[这里](https://vm.lab.lazymio.cn)，一个非常简单的实现在 tests/simple_vm.hpp
+虚拟机的实现标准在[这里](https://vm.buaasecompiling.cn)，一个非常简单的实现在 tests/simple_vm.hpp 供参考。
 
 ### 错误处理
 
