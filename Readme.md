@@ -221,7 +221,7 @@ mini plc0 本身相当简单，但是它依然规定了程序最基本的一些�
 - 了解递归下降分析以及基于它的代码生成
 - 根据章内文档对 mini plc0 编译器的一种实现进行代码补全
 
-实验用的源代码在[这里](https://github.com/BUAA-SE-Compiling/miniplc0-compiler)，可以先 clone 一份一遍看一遍阅读指导书。
+实验用的源代码在[这里](https://github.com/BUAA-SE-Compiling/miniplc0-compiler)，可以先 clone 一份然后一边看代码一边阅读指导书。
 
 另外再强调一次：任何抄袭抓到都是判 0 分，相信我们有这个决心，请不要碰这根红线。
 
