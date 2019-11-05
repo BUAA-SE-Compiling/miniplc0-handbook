@@ -1012,6 +1012,7 @@ cd miniplc0-compiler
 git submodule update --init --recursive
 mkdir build
 cd build
+cmake ..
 make
 ```
 
