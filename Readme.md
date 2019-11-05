@@ -668,20 +668,39 @@ $
 
 你可以
 
+- 修改 tests/test_analyser.cpp, tests/test_tokenizer.cpp 的内容
+- 修改 analyser/analyser.cpp 的 
+    - Analyser::analyseMain
+    - Analyser::analyseVariableDeclaration
+    - Analyser::analyseStatementSequence
+    - Analyser::analyseConstantExpression
+    - Analyser::analyseAssignmentStatement
+    - Analyser::analyseItem
+    - Analyser::analyseFactor
+- 修改 tokenizer/tokenizer.cpp 的
+    - Tokenizer::nextToken
+- 修改 tests 下的
+    - test_analyser.cpp
+    - test_tokenizer.cpp
+- 修改 error/error.h 的
+    - ErrorCode 的可能值
+- 修改 fmts.hpp 的
+    - fmt::formatter<miniplc0::ErrorCode>::format 函数中相应的 switch
+- 修改 .gitignore
 - 在 analyser.cpp 或者 tokenizer.cpp 的 miniplc0 命名空间下添加全局的辅助函数
-- 完全重新实现 nextToken 和 analyse***** 函数
-- 修改 ErrorCode 的可能值，但是注意如果你添加或者删除了 ErrorCode 请修改 fmts.hpp 中的 format 函数。
-- 添加新的 include，但是仅限于标准库和项目除了 3rd_party 以外的文件。
+- 完全重新实现 Tokenizer::nextToken 和 Analyser::analyse***** 函数
+- 修改 ErrorCode 的可能值，但是注意如果你添加或者删除了 ErrorCode 必须修改 fmts.hpp 中的 format 函数。
+- 添加新的 include，但是仅限于标准库和项目内除了 3rd_party 以外的文件。
 
 你不能
 
-- 修改 CMakeLists.txt。
-- 添加和修改任何新的源代码文件。
-- 修改除了 error.h, fmts.hpp, analyser.cpp, tokenizer.cpp, test_analyser.cpp, test_tokenizer.cpp 以外的任何文件。
+- 修改除了上面提到的可修改文件以外的任何文件。
+- 添加和删除任何文件。
 - 修改 error.h 中除了 ErrorCode 取值以外的代码。
 - 修改 fmts.hpp 中除了 ErrorCode 对应的 switch case 以外的代码。
 - 修改 analyser.cpp 中 analyser***** 以外的函数。
 - 修改 tokenizer.cpp 中 nextToken 以外的函数。
+- 修改 tests/test_main.cpp
 - 添加任何宏，包括但不限于 define, ifdef 等。
 - 添加任何 using，比如 using namespace std。
 - 修改任何已有函数的签名。
