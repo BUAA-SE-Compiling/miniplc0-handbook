@@ -1047,3 +1047,15 @@ make test
 docker volume / mount 请自行探索。
 
 或者也可以先在本地写，提交前测试改好。
+
+#### D.2.4 container 怎么没有 sshd 呀
+
+首先看[这篇文章](https://jpetazzo.github.io/2014/06/23/docker-ssh-considered-evil/)。
+
+当然如果你非要 sshd 也是可以的，只要
+
+```bash
+service sshd restart
+```
+
+就 ok 了，至于网络问题请自行探索。
