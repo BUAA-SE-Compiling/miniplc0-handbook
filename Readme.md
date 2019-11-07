@@ -1062,7 +1062,13 @@ argparse 用来格式化命令行参数。
 
 ### D.1 Linux
 
-首先我们从最新的 image 创建一个 container。
+如果还没有装 docker 的话先一键安装
+
+```bash
+curl https://get.docker.com | sh
+```
+
+然后我们从最新的 image 创建一个 container。
 
 ```bash
 # pull latest image
