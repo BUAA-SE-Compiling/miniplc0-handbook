@@ -638,12 +638,12 @@ Line: 1 Column: 1 Type: Var Value: var
 Line: 1 Column: 5 Type: Identifier Value: a
 Line: 1 Column: 7 Type: EqualSign Value: =
 Line: 1 Column: 9 Type: UnsignedInteger Value: 1
-Line: 1 Column: 10 Type: Semicolon Value: =
+Line: 1 Column: 10 Type: Semicolon Value: ;
 Line: 2 Column: 1 Type: Print Value: print
 Line: 2 Column: 6 Type: LeftBracket Value: (
 Line: 2 Column: 7 Type: Identifier Value: a
 Line: 2 Column: 8 Type: RightBracket Value: )
-Line: 2 Column: 9 Type: Semicolon Value: =
+Line: 2 Column: 9 Type: Semicolon Value: ;
 Line: 3 Column: 0 Type: End Value: end
 $
 ```
