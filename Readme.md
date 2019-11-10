@@ -468,7 +468,7 @@ namespace miniplc0 {
 
 #### 3.3.2 状态图
 
-![mini-plc0 词法分析状态图](https://i.imgur.com/8EWWERh.png)
+![mini-plc0 词法分析状态图](img/dfa.png)
 
 这里给出大家我们自动机的状态图。
 
