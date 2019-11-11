@@ -663,15 +663,45 @@ $
 
 ##### 3.8.3.1 词法分析器
 
-词法分析器的目标是对输入的字符序列分析得到 tokens，如前面所述采用自动机实现，因此学生需要补全的是 tokenizer/tokenizer.cpp 的 nextToken 函数。
+词法分析器的目标是对输入的字符序列分析得到 tokens，如前面所述采用自动机实现，因此学生需要补全的是 tokenizer/tokenizer.cpp 的 nextToken 函数，在源代码中会有相应的提示，比如[这里](https://github.com/BUAA-SE-Compiling/miniplc0-compiler/blob/ebc238d8facf7514de3eb29e6a3393e2bc57e29f/tokenizer/tokenizer.cpp#L124)
 
-补全后编译器应该能对 miniplc0 进行正常的词法分析，可以通过编译器的输出来判断。
+```C++
+			case UNSIGNED_INTEGER_STATE: {
+				// 请填空：
+				// 如果当前已经读到了文件尾，则解析已经读到的字符串为整数
+				//     解析成功则返回无符号整数类型的token，否则返回编译错误
+				// 如果读到的字符是数字，则存储读到的字符
+				// 如果读到的是字母，则存储读到的字符，并切换状态到标识符
+				// 如果读到的字符不是上述情况之一，则回退读到的字符，并解析已经读到的字符串为整数
+				//     解析成功则返回无符号整数类型的token，否则返回编译错误
+				break;
+			}
+```
+
+学生可以按照注释填写，也可以完全重新实现 nextToken。
+
+补全后编译器应该能对 miniplc0 进行正常的词法分析，学生可以通过编译器的输出来判断。
 
 需要注意的是 nextToken 并不会直接被调用，它是外部接口 NextToken 的核心实现，至于 NextToken 怎么使用可以参考 main.cpp。
 
 ##### 3.8.3.2 语法分析器
 
-语法分析器的目标是对 token 序列分析后生成指令序列，如前面所述采用递归下降实现，学生需要补全的是 analyser/analyser.cpp 的系列函数。
+语法分析器的目标是对 token 序列分析后生成指令序列，如前面所述采用递归下降实现，学生需要补全的是 analyser/analyser.cpp 的系列函数，同样在源代码中会有相应的提示，比如[这里](https://github.com/BUAA-SE-Compiling/miniplc0-compiler/blob/ebc238d8facf7514de3eb29e6a3393e2bc57e29f/analyser/analyser.cpp#L37)
+
+```C++
+	std::optional<CompilationError> Analyser::analyseMain() {
+		// 完全可以参照 <程序> 编写
+
+		// <常量声明>
+
+		// <变量声明>
+
+		// <语句序列>
+		return {};
+	}
+```
+
+学生可以按照注释填写，也可以完全重新实现。
 
 补全后编译器应该能对 miniplc0 进行正常的语法分析，可以通过编译器输出的指令来判断。
 
