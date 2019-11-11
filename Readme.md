@@ -552,7 +552,12 @@ miniplc0 在编译后会运行在一个我们特制的虚拟机上，这个虚�
 
 #### 3.8.1 IDE选择
 
-CMake 本身是跨平台的，因此 IDE 选择上就简单许多了。
+CMake 本身是跨平台的，因此 IDE 选择上就简单许多了。注意虽然我们是在 Docker 中评测，但是实际开发可选的方式很多
+
+- 配置远程调试，更多的请见[讨论](https://github.com/BUAA-SE-Compiling/miniplc0-handbook/issues/3)
+- 利用本地的编译器完成实验，提交前在 container 内测试
+
+第一种我们不在这里介绍，以下都是基于第二种介绍。当然它们也可以支持远程调试，请自行探索。
 
 ##### 3.8.1.1 Visual Studio
 
@@ -577,7 +582,7 @@ CMake 本身是跨平台的，因此 IDE 选择上就简单许多了。
 
 ##### 3.8.1.2 CLion
 
-JetBrains 出品的 C/C++ IDE，只支持 CMake 管理的项目，整体体验尚可，在 Windows 上注意要配好 mingw64。
+JetBrains 出品的跨平台 C/C++ IDE，只支持 CMake 管理的项目，整体体验尚可，在 Windows 上注意要配好 mingw64。
 
 优点
 
