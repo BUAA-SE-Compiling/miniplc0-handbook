@@ -556,8 +556,8 @@ CMake 本身是跨平台的，因此 IDE 选择上就简单许多了。
 
 注意虽然我们是在 Container 中评测，但是实际开发并不一定需要 Container，一般开发方式有以下几种：
 
-- 配置远程调试，更多的请见[讨论](https://github.com/BUAA-SE-Compiling/miniplc0-handbook/issues/3)
-- 利用本地的编译器完成实验，提交前在 Container 内测试好
+- 配置远程调试，更多的请见[讨论](https://github.com/BUAA-SE-Compiling/miniplc0-handbook/issues/3)，优点是调试环境和最终测试环境一致。
+- 利用本地的编译器完成实验，提交前在 Container 内测试好，优点是上手快一些，但是提交前请务必测试好。
 
 第一种我们不在这里介绍，以下都是基于第二种介绍。当然它们很多也可以支持远程调试，请自行探索。
 
