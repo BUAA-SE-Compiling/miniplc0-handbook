@@ -552,7 +552,7 @@ miniplc0 在编译后会运行在一个我们特制的虚拟机上，这个虚�
 
 #### 3.8.1 IDE选择
 
-CMake 本身是跨平台的，因此 IDE 选择上就简单许多了。注意虽然我们是在 Docker 中评测，但是实际开发可选的方式很多
+CMake 本身是跨平台的，因此 IDE 选择上就简单许多了。注意虽然我们是在 Docker 中评测，但是实际开发可选的方式很多：
 
 - 配置远程调试，更多的请见[讨论](https://github.com/BUAA-SE-Compiling/miniplc0-handbook/issues/3)
 - 利用本地的编译器完成实验，提交前在 container 内测试
@@ -1144,8 +1144,6 @@ make
 make test
 ```
 
-再次提醒：在这个 image 下的产物的输出作为最终判定的结果。
-
 ### D.2 FAQ
 
 #### D.2.1 docker pull 好慢
@@ -1154,15 +1152,13 @@ make test
 
 #### D.2.2 Windows/Mac 怎么办
 
-我建议虚拟机，包括 mac。
+我建议虚拟机 Ubuntu/Debian，因为这是我觉得最省事的办法，一行 `curl https://get.docker.com | sh` 就完事了。
 
-#### D.2.3 代码都在 container 里怎么上 IDE 呀
+如果有能力的话可以探索 docker on Windows/Mac 但是有一点需要强调的是：最终我们的评测环境一定是 docker on Linux，尽管因为宿主机环境带来的影响微乎其微，但是对比一下[这里](https://github.com/docker?utf8=%E2%9C%93&q=for&type=&language=)三大平台上 issue 的数量，我们没能力也没信心保证你在 docker on Windows/Mac 的输出一定会和 docker on Linux 输出一致。简单来说，一切都是为了保证输出的一致。
 
-docker volume / mount 请自行探索。
+此外顺带一句：docker on Windows 需要 HyperV，Windows10 Home 的同学可以歇歇了。
 
-或者也可以先在本地写，提交前测试改好。
-
-#### D.2.4 container 怎么没有 sshd 呀
+#### D.2.3 container 怎么没有 sshd 呀
 
 首先看[这篇文章](https://jpetazzo.github.io/2014/06/23/docker-ssh-considered-evil/)。
 
