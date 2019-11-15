@@ -1180,6 +1180,8 @@ make test
 
 如果有能力的话可以探索 docker on Windows/Mac 但是有一点需要强调的是：最终我们的评测环境一定是 docker on Linux，尽管因为宿主机环境带来的影响微乎其微，但是对比一下[这里](https://github.com/docker?utf8=%E2%9C%93&q=for&type=&language=)三大平台上 issue 的数量，我们没能力也没信心保证你在 docker on Windows/Mac 的输出一定会和 docker on Linux 输出一致，即使你在 docker on Windows/Mac 测试通过了，我们仍然建议在提交作业前在 docker on Linux 的环境下跑一遍 tests。简单来说，一切都是为了保证输出的一致。
 
+另外根据同学的报告，虚拟机内存小于等于 1G 很可能因为内存不足编译失败，见[讨论](https://github.com/BUAA-SE-Compiling/miniplc0-compiler/issues/4)
+
 此外顺带一句：docker on Windows 需要 HyperV，Windows10 Home 的同学可以歇歇了。
 
 #### D.2.3 container 怎么没有 sshd 呀
