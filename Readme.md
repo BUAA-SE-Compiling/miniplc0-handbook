@@ -797,7 +797,6 @@ WRT
 
 ```
 - 根目录
-| - .git/ # master
 | - 3rd_party/
   | - argparse/ # 272b19b
   | - catch2/
@@ -830,7 +829,6 @@ WRT
 
 ```
 - 根目录
-| - .git/
 | - 3rd_party/
 | - analyser/
 | ...
@@ -839,8 +837,7 @@ WRT
 
 ```
 - 根目录
-| - miniplc0/
-  | - .git/
+| - miniplc0-compiler/
   | - 3rd_party/
   | - analyser/
   | ...
@@ -851,7 +848,6 @@ WRT
 ```
 - 根目录
 | - homework/
-  | - .git/
   | - 3rd_party/
   | - analyser/
   | ...
@@ -862,16 +858,16 @@ WRT
 ```
 - 根目录
 | - 学号_姓名_mini/
-  | - .git/
   | - 3rd_party/
   | - analyser/
   | ...
 ```
 
-也不要忘了 .git
+唯一的例外是 .git，你可以带上 .git
 
 ```
 - 根目录
+| - .git/
 | - 3rd_party/
 | - analyser/
 | ...
