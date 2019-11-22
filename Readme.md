@@ -713,7 +713,6 @@ $
 
 你可以
 
-- 修改 tests/test_analyser.cpp, tests/test_tokenizer.cpp 的内容
 - 修改 analyser/analyser.cpp 的
     - Analyser::analyseProgram
     - Analyser::analyseMain
@@ -818,6 +817,9 @@ WRT
   | - tokenizer.cpp
   | - tokenizer.h
   | - utils.hpp
+| - analyser/
+  | - analyser.cpp
+  | - analyser.h
 | - .gitignore
 | - .gitmodules
 | - CMakeLists.txt
