@@ -875,7 +875,7 @@ WRT
 | ...
 ```
 
-最后请在提交前检查一下 `3rd_party/argparse` 和 `3rd_party/fmdt` 两个文件夹**不要是空的，并且是正确的的版本。**
+最后请在提交前检查一下 `3rd_party/argparse` 和 `3rd_party/fmt` 两个文件夹**不要是空的，并且是正确的的版本。**
 
 ## 附录A EBNF
 
