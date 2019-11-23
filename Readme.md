@@ -724,6 +724,9 @@ $
     - Analyser::analyseOutputStatement
     - Analyser::analyseItem
     - Analyser::analyseFactor
+- 在下面这些类中添加新的私有函数和私有成员变量，注意要同时修改 .h 和 .cpp 
+    - Analyser
+    - Tokenizer
 - 修改 tokenizer/tokenizer.cpp 的
     - Tokenizer::nextToken
 - 修改 tests 下的
@@ -747,8 +750,8 @@ $
 - 添加和删除任何文件。
 - 修改 error.h 中除了 ErrorCode 取值以外的代码。
 - 修改 fmts.hpp 中除了 ErrorCode 对应的 switch case 以外的代码。
-- 修改 analyser.cpp 中 analyse***** 以外的函数。
-- 修改 tokenizer.cpp 中 nextToken 以外的函数。
+- 修改 analyser.cpp 中 analyse***** 以外的**已有**函数和成员变量。
+- 修改 tokenizer.cpp 中 nextToken 以外的**已有**函数和成员变量。
 - 修改 tests/test_main.cpp
 - 修改 .gitmodules 以及 3rd_party 下 submodule 的版本
 - 添加任何宏，包括但不限于 define, ifdef 等。
