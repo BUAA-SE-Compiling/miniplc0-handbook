@@ -19,10 +19,17 @@
 
 **编译**（compilation）的目的是将指定语言的源代码输入翻译成目标语言输出，通常来说目标语言是某种汇编指令集。
 
-> 粗略地说，编译过程包含了五个顺序执行的主要过程：[词法分析](#词法分析)->[语法分析](#语法分析与语义分析)->[语义分析](#语法分析与语义分析)->[代码优化](#代码优化)->[代码生成](#代码生成)，以及贯穿它们的两个辅助过程：[符号表管理](#符号表管理)和[错误处理](#错误处理)。 
+> 粗略地说，一个最简单的编译过程包含了五个顺序执行的主要过程：[词法分析](#词法分析)->[语法分析](#语法分析与语义分析)->[语义分析](#语法分析与语义分析)->[代码优化](#代码优化)->[代码生成](#代码生成)，以及贯穿它们的两个辅助过程：[符号表管理](#符号表管理)和[错误处理](#错误处理)。 
 >
-> 词法分析、语法分析和语义分析，也被称为编译过程的**前端**（front end）；
-> 代码优化和代码生成，也被称为编译过程的**后端**（back end）。
+> 当存在中间代码时，语义通常会执行中间代码的生成。比较简单的模型下，语义分析可能直接生成目标代码；对于一个多趟的编译过程，可能存在多种中间代码。
+>
+> 为了降低编译过程的复杂性，存在按阶段划分的编译过程模型：
+>
+> - 源代码相关的**前端**（front end）：预处理、词法分析、语法分析、语义分析和中间代码生成
+> - 源代码和目标机都无关的**中端**（middle end）：机器无关的代码优化
+> - 目标机相关的**后端**（back end）：机器相关的代码优化和目标代码生成
+>
+> LLVM 采用的就是三阶段的编译模型。
 
 实际编程语言的应用场景会更复杂一些，比如[C语言的主要编译过程](https://en.cppreference.com/w/c/language/translation_phases)就有八个阶段；而我们实验中采用的**基于递归下降分析的语法制导分析**则是在语法分析的同时进行语义分析和代码生成。在对简单过程模型的学习后，你可以更深入地去考虑现代编程语言的编译过程，事实上C语言编译过程也是面试经典题。
 
@@ -414,7 +421,7 @@ mini plc0 的完整文法如下，如果存在理解困难，请参阅附录[EBN
 | 数字 | digit | 字母 | alpha / letter | 符号 | sign |
 | 无符号整数 | unsigned integer literal | 标识符 | identifier | 关键字 | keyword |
 | 程序 | program | 主过程 | main process | 常量声明 | constant declarations |
-| 常量声明语句 | constant declaration statement | 常表达式 | constant expression | 变量声明 | variable declarations | 
+| 常量声明语句 | constant declaration statement | 常表达式 | constant expression | 变量声明 | variable declarations |
 | 变量声明语句 | variable declaration statement | 语句序列 | statement sequence | 语句 | statement |
 | 赋值语句 | assignment expression | 输出语句 | output statement | 空语句 | empty statement |
 | 表达式 | expression | 项 | term | 因子 | factor |
