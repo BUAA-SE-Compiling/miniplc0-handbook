@@ -812,7 +812,7 @@ WRT
     | - catch2/
       | - catch.hpp
     | - CMakeLists.txt
-  | - fmts/ # 1dfa259
+  | - fmt/ # 1dfa259
 | - error/
   | - error.h
 | - instruction/
