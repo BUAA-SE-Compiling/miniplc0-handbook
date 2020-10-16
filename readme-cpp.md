@@ -30,6 +30,10 @@ mini plc0 本身相当简单，但是它依然规定了程序最基本的一些�
 
 实验用的源代码在[这里](https://github.com/BUAA-SE-Compiling/miniplc0-compiler)，可以先 clone 一份然后一边看代码一边阅读指导书。
 
+**提醒一下，这个仓库使用了 git submodule，所以在 clone 的时候请使用 `git clone -r` 下载。**
+
+**如果你已经下载完了，请在本地仓库内运行 `git submodule init` 和 `git submodule update --recommend-shallow` 来下载 submodule**
+
 另外再强调一次：任何抄袭抓到都是判 0 分，相信我们有这个决心，请不要碰这根红线。
 
 ### 3.1 编译系统整体结构
