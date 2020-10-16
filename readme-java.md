@@ -557,4 +557,36 @@ gradle fatjar
 java -jar ./build/libs/miniplc0java.jar
 ```
 
-我们不推荐使用 `gradle run` 来运行，因为它
+我们不推荐使用 `gradle run` 来运行，因为它太菜了。
+
+#### Gradle 拉取依赖太慢了怎么办！
+
+把这段丢进 `~/.gradle/init.gradle` 里面去
+
+```groovy
+allprojects{
+    repositories {
+        def ALIYUN_REPOSITORY_URL = 'http://maven.aliyun.com/nexus/content/groups/public'
+        def ALIYUN_JCENTER_URL = 'http://maven.aliyun.com/nexus/content/repositories/jcenter'
+        all { ArtifactRepository repo ->
+            if(repo instanceof MavenArtifactRepository){
+                def url = repo.url.toString()
+                if (url.startsWith('https://repo1.maven.org/maven2')) {
+                    project.logger.lifecycle "Repository ${repo.url} replaced by $ALIYUN_REPOSITORY_URL."
+                    remove repo
+                }
+                if (url.startsWith('https://jcenter.bintray.com/')) {
+                    project.logger.lifecycle "Repository ${repo.url} replaced by $ALIYUN_JCENTER_URL."
+                    remove repo
+                }
+            }
+        }
+        maven {
+                url ALIYUN_REPOSITORY_URL
+            url ALIYUN_JCENTER_URL
+        }
+    }
+}
+```
+
+其中，`~` 代表你的根目录，在 windows 下是 `C:\Users\<你的用户名>\`
