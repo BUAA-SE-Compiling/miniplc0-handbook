@@ -457,42 +457,60 @@ $
 
 ##### 3.8.3.1 词法分析器
 
-词法分析器的目标是对输入的字符序列分析得到 tokens，如前面所述采用自动机实现，因此学生需要补全的是 tokenizer/tokenizer.cpp 的 nextToken 函数，在源代码中会有相应的提示，比如[这里](https://github.com/BUAA-SE-Compiling/miniplc0-compiler/blob/ebc238d8facf7514de3eb29e6a3393e2bc57e29f/tokenizer/tokenizer.cpp#L124)
+词法分析器的目标是对输入的字符序列分析得到 tokens，因此学生需要补全的是 `Tokenizer.java` 的 `lex***` 函数，在源代码中会有相应的提示，比如[这里](https://github.com/BUAA-SE-Compiling/miniplc0-java/blob/be0f1805693418209c909a53edf7b796535f1a6f/src/main/java/miniplc0java/tokenizer/Tokenizer.java#L41-L51)
 
-```C++
-			case UNSIGNED_INTEGER_STATE: {
-				// 请填空：
-				// 如果当前已经读到了文件尾，则解析已经读到的字符串为整数
-				//     解析成功则返回无符号整数类型的token，否则返回编译错误
-				// 如果读到的字符是数字，则存储读到的字符
-				// 如果读到的是字母，则存储读到的字符，并切换状态到标识符
-				// 如果读到的字符不是上述情况之一，则回退读到的字符，并解析已经读到的字符串为整数
-				//     解析成功则返回无符号整数类型的token，否则返回编译错误
-				break;
-			}
+```java
+    private Token lexUInt() throws TokenizeError {
+        // 请填空：
+        // 直到查看下一个字符不是数字为止:
+        // -- 前进一个字符，并存储这个字符
+        //
+        // 解析存储的字符串为无符号整数
+        // 解析成功则返回无符号整数类型的token，否则返回编译错误
+        //
+        // Token 的 Value 应填写数字的值
+        throw new Error("Not implemented");
+    }
 ```
 
-学生可以按照注释填写，也可以完全重新实现 nextToken。
+学生可以按照注释填写，也可以完全重新实现这些函数。
 
 补全后编译器应该能对 miniplc0 进行正常的词法分析，学生可以通过编译器的输出来判断。
 
-需要注意的是 nextToken 并不会直接被调用，它是外部接口 NextToken 的核心实现，至于 NextToken 怎么使用可以参考 main.cpp。
-
 ##### 3.8.3.2 语法分析器
 
-语法分析器的目标是对 token 序列分析后生成指令序列，如前面所述采用递归下降实现，学生需要补全的是 analyser/analyser.cpp 的系列函数，同样在源代码中会有相应的提示，比如[这里](https://github.com/BUAA-SE-Compiling/miniplc0-compiler/blob/ebc238d8facf7514de3eb29e6a3393e2bc57e29f/analyser/analyser.cpp#L37)
+语法分析器的目标是对 token 序列分析后生成指令序列，如前面所述采用递归下降实现，学生需要补全的是 `Analyser.java` 里的系列函数，同样在源代码中会有相应的提示（~~并没有~~），比如[这里](https://github.com/BUAA-SE-Compiling/miniplc0-java/blob/be0f1805693418209c909a53edf7b796535f1a6f/src/main/java/miniplc0java/analyser/Analyser.java#L264-L290)
 
-```C++
-	std::optional<CompilationError> Analyser::analyseMain() {
-		// 完全可以参照 <程序> 编写
+```java
+    private void analyseFactor() throws CompileError {
+        boolean negate;
+        if (nextIf(TokenType.Minus) != null) {
+            negate = true;
+            // 计算结果需要被 0 减
+            instructions.add(new Instruction(Operation.LIT, 0));
+        } else {
+            nextIf(TokenType.Plus);
+            negate = false;
+        }
 
-		// <常量声明>
 
-		// <变量声明>
+        if (check(TokenType.Ident)) {
+            // 调用相应的处理函数
+        } else if (check(TokenType.Uint)) {
+            // 调用相应的处理函数
+        } else if (check(TokenType.LParen)) {
+            // 调用相应的处理函数
+        } else {
+            // 都不是，摸了
+            throw new ExpectedTokenError(List.of(TokenType.Ident, TokenType.Uint, TokenType.LParen), next());
+        }
 
-		// <语句序列>
-		return {};
-	}
+
+        if (negate) {
+            instructions.add(new Instruction(Operation.SUB));
+        }
+        throw new Error("Not implemented");
+    }
 ```
 
 学生可以按照注释填写，也可以完全重新实现。
