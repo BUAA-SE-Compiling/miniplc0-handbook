@@ -638,7 +638,7 @@ void add(int a, int b, exception_context& ctx);
 
 一开始思考用什么语言实现 mini plc0 编译器的时候我们也有很多考虑。
 
-首先考虑哪些语言是1721已经学过的：
+首先考虑哪些语言是 ~~17~~1821已经学过的：
 
 - C/C++
 - Java
