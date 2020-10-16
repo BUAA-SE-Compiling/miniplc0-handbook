@@ -386,6 +386,24 @@ Extended Backus-Naur Form（扩展巴科斯范式），是[ISO/IEC 14977](http:/
 curl https://get.docker.com | sh
 ```
 
+#### 只构建不测试
+
+输入下面的命令来使用 dockerfile 自动编译构建一个镜像，并为镜像添加 `<your_tag>` 的标签
+
+```bash
+docker build . -t <your_tag>
+```
+
+使用镜像来处理本地文件。其中 `<your_params>` 是你运行程序的参数，`<path>` 是你希望处理的文件（夹）的 **绝对路径**。文件将会被映射到容器内 `/tests` 路径中。
+
+```bash
+docker run --rm -it -v <path>:/tests <your_tag> <your_params>
+#                             ^~~~~~被映射到的路径
+```
+
+
+#### 旧版方法
+
 然后我们从最新的 image 创建一个 container。
 
 ```bash
