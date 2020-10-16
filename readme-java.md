@@ -503,60 +503,13 @@ $
 
 你可以：
 
-- 修改任何代码，但是要保证最终程序能运行
+- 修改除了下面提到的以外的任何代码，但是要保证最终程序能运行
 
 你不能：
 
+- 修改有关指令（`Instruction`) 输出的部分
+- 修改 main 函数中的错误处理部分（报错后返回 0）
 - 抄作业
-
-~~你可以~~
-
-- ~~修改 analyser/analyser.cpp 的~~
-    - ~~Analyser::analyseProgram~~
-    - ~~Analyser::analyseMain~~
-    - ~~Analyser::analyseVariableDeclaration~~
-    - ~~Analyser::analyseStatementSequence~~
-    - ~~Analyser::analyseConstantExpression~~
-    - ~~Analyser::analyseExpression~~
-    - ~~Analyser::analyseAssignmentStatement~~
-    - ~~Analyser::analyseOutputStatement~~
-    - ~~Analyser::analyseItem~~
-    - ~~Analyser::analyseFactor~~
-- ~~在下面这些类中添加新的私有函数和私有成员变量，注意要同时修改 .h 和 .cpp ~~
-    - ~~Analyser~~
-    - ~~Tokenizer~~
-- ~~修改 tokenizer/tokenizer.cpp 的~~
-    - ~~Tokenizer::nextToken~~
-- ~~修改 tests 下的~~
-    - ~~test_analyser.cpp~~
-    - ~~test_tokenizer.cpp~~
-- ~~修改 error/error.h 的~~
-    - ~~ErrorCode 的可能值~~
-- ~~修改 fmts.hpp 的~~
-    - ~~fmt::formatter<miniplc0::ErrorCode>::format 函数中相应的 switch~~
-- ~~修改 .gitignore~~
-- ~~在 analyser.cpp 或者 tokenizer.cpp 的 miniplc0 命名空间下添加全局的辅助函数~~
-- ~~完全重新实现 Tokenizer::nextToken 和 Analyser::analyse***** 函数~~
-- ~~修改 ErrorCode 的可能值，但是注意如果你添加或者删除了 ErrorCode 必须修改 fmts.hpp 中的 format 函数。~~
-- ~~添加新的 include，但是仅限于标准库和项目内除了 3rd_party 以外的文件。~~
-- ~~在本地的 .git 上进行提交~~
-- ~~同步到 GitHub，但是实验期间我们建议使用 private repo。~~
-
-~~你不能~~
-
-- ~~修改除了上面提到的可修改文件以外的任何文件。~~
-- ~~添加和删除任何文件。~~
-- ~~修改 error.h 中除了 ErrorCode 取值以外的代码。~~
-- ~~修改 fmts.hpp 中除了 ErrorCode 对应的 switch case 以外的代码。~~
-- ~~修改 analyser.cpp 中 analyse***** 以外的**已有**函数和成员变量。~~
-- ~~修改 tokenizer.cpp 中 nextToken 以外的**已有**函数和成员变量。~~
-- ~~修改 tests/test_main.cpp~~
-- ~~修改 .gitmodules 以及 3rd_party 下 submodule 的版本~~
-- ~~添加任何宏，包括但不限于 define, ifdef 等。~~
-- ~~添加任何 using，比如 using namespace std。~~
-- ~~修改任何已有函数的签名。~~
-
-~~**在所有评测开始前，我们会先检测其余文件的完整性，方式是diff甚至是算hash，如果你修改了不应该修改的文件或者没有使用最新的代码库一定会影响成绩，建议提交前自己对着 master 分支的代码 diff 一遍。**~~
 
 如果是设计上本身的缺陷需要修改不能修改的文件/函数，请尽快联系我们。
 
