@@ -9,7 +9,7 @@
   - clang 5 以上
   - Visual Studio 2017 以上
 - CMake
-- Make (如果你用 Visual Studio 的话)
+- Make (如果你不用 Visual Studio 的话)
 
 ## 3. mini plc0 编译系统
 
