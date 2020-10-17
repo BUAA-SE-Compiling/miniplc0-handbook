@@ -447,7 +447,7 @@ make test
 
 #### D.2.1 docker pull 好慢
 
-换源，具体问 Google。
+换源，这里给出一个[参考](https://mirrors.ustc.edu.cn/help/dockerhub.html)。
 
 #### D.2.2 Windows/Mac 怎么办
 
