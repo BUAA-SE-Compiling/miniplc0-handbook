@@ -586,8 +586,8 @@ java -jar ./build/libs/miniplc0java.jar
 ```groovy
 allprojects{
     repositories {
-        def ALIYUN_REPOSITORY_URL = 'https://maven.aliyun.com/nexus/content/groups/public'
-        def ALIYUN_JCENTER_URL = 'https://maven.aliyun.com/nexus/content/repositories/jcenter'
+        def ALIYUN_REPOSITORY_URL = 'http://maven.aliyun.com/nexus/content/groups/public'
+        def ALIYUN_JCENTER_URL = 'http://maven.aliyun.com/nexus/content/repositories/jcenter'
         all { ArtifactRepository repo ->
             if(repo instanceof MavenArtifactRepository){
                 def url = repo.url.toString()
