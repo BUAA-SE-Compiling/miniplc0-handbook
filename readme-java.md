@@ -408,10 +408,10 @@ JB 公司出品的跨平台 Java IDE。
 
 虽然我们给出的编译器代码是残缺的，但是也是能正常编译的。
 
-项目编译之后会生成一个 miniplc0 可执行文件，可以查看 Usage 有
+项目编译之后会生成一个 miniplc0 的 JAR 包（fatjar, 包含所有依赖的包），可以查看 Usage 有
 
 ```
-$ ./miniplc0.exe --help
+$ java -jar build/libs/miniplc0java.jar --help
 help called
 
 Usage: miniplc0 [options] input
@@ -429,13 +429,13 @@ Optional arguments:
 这里 -t 和 -l 表明是进行词法分析还是语法分析，-o 表示输出的文件，如果没有指定默认输出到 stdout，对于 hello.plc0 如果实现正确的话一种可能的输出是这样的
 
 ```
-$ ./miniplc0.exe hello.plc0 -l
+$ java -jar build/libs/miniplc0java.jar hello.plc0 -l
 LIT 0
 LIT 1
 STO 0
 LOD 0
 WRT
-$ ./miniplc0.exe hello.plc0 -t
+$ java -jar build/libs/miniplc0java.jar hello.plc0 -t
 Line: 0 Column: 0 Type: Begin Value: begin
 Line: 1 Column: 1 Type: Var Value: var
 Line: 1 Column: 5 Type: Identifier Value: a
